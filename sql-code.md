@@ -133,13 +133,13 @@ Analyze how fat content impacts sales performance and compare additional KPIs ac
 
 ```sql
 SELECT
-    `Item Fat Content`,
+    Item_Fat_Content,
     CONCAT(CAST(SUM(Sales)/1000 AS DECIMAL(10,2)), 'k') AS Total_Sales,
     CONCAT(CAST(AVG(Sales) AS DECIMAL(10,0)), 'M') AS Avg_Sales,
     COUNT(*) AS Total_No_Items,
     CAST(AVG(Rating) AS DECIMAL(10,2)) AS Avg_Rating
 FROM blinkit_grocery_data
-GROUP BY `Item Fat Content`
+GROUP BY Item_Fat_Content
 ORDER BY Total_Sales DESC;
 ```
 <p align="left">
@@ -156,13 +156,13 @@ Identify top-performing product categories based on sales.
 
 ```sql
 SELECT
-    `Item Type`,
+    Item_Type,
     CONCAT(CAST(SUM(Sales)/1000 AS DECIMAL(10,2)), 'k') AS Total_Sales,
     CONCAT(CAST(AVG(Sales) AS DECIMAL(10,0)), 'M') AS Avg_Sales,
     COUNT(*) AS Total_No_Items,
     CAST(AVG(Rating) AS DECIMAL(10,2)) AS Avg_Rating
 FROM blinkit_grocery_data
-GROUP BY `Item Type`
+GROUP BY Item_Type
 ORDER BY Total_Sales DESC;
 ```
 <p align="left">
@@ -209,13 +209,13 @@ Evaluate how outlet age influences revenue generation.
 
 ```sql
 SELECT
-    `Outlet Establishment Year`,
+    Outlet_Establishment_Year,
     CONCAT(CAST(SUM(Sales)/1000 AS DECIMAL(10,2)), 'k') AS Total_Sales,
     CONCAT(CAST(AVG(Sales) AS DECIMAL(10,0)), 'M') AS Avg_Sales,
     COUNT(*) AS No_Of_Items
 FROM blinkit_grocery_data
-GROUP BY `Outlet Establishment Year`
-ORDER BY `Outlet Establishment Year`;
+GROUP BY Outlet_Establishment_Year
+ORDER BY Outlet_Establishment_Year;
 ```
 <p align="left">
   <img src="screenshot/8.png" width="300">
@@ -231,7 +231,7 @@ Determine the contribution of each outlet size toward overall sales.
 
 ```sql
 SELECT
-    `Outlet Size`,
+    Outlet_Size,
     CAST(SUM(Sales) AS DECIMAL(10,2)) AS Total_Sales,
     CAST(
         (SUM(Sales) * 100.0 /
@@ -239,7 +239,7 @@ SELECT
         AS DECIMAL(10,2)
     ) AS Sales_Percentage
 FROM blinkit_grocery_data
-GROUP BY `Outlet Size`;
+GROUP BY Outlet_Size;
 ```
 **Note:** `OVER()` is used as a window function to calculate overall sales while preserving grouped results.
 <p align="left">
@@ -256,7 +256,7 @@ Analyze geographical distribution of sales.
 
 ```sql
 SELECT
-    `Outlet Location Type`,
+    Outlet_Location_Type,
     CAST(SUM(Sales) AS DECIMAL(10,2)) AS Total_Sales,
     CAST(
         (SUM(Sales) * 100.0 /
@@ -264,7 +264,7 @@ SELECT
         AS DECIMAL(10,2)
     ) AS Sales_Percentage
 FROM blinkit_grocery_data
-GROUP BY `Outlet Location Type`;
+GROUP BY Outlet_Location_Type;
 ```
 <p align="left">
   <img src="screenshot/10.png" width="300">
@@ -287,13 +287,13 @@ Compare outlet types across all major business metrics.
 
 ```sql
 SELECT
-    `Outlet Type`,
+    Outlet_Type,
     CONCAT(CAST(SUM(Sales)/1000 AS DECIMAL(10,2)), 'k') AS Total_Sales,
     CONCAT(CAST(AVG(Sales) AS DECIMAL(10,0)), 'M') AS Avg_Sales,
     COUNT(*) AS No_Of_Items,
     CAST(AVG(Rating) AS DECIMAL(10,2)) AS Avg_Rating
 FROM blinkit_grocery_data
-GROUP BY `Outlet Type`
+GROUP BY Outlet_Type
 ORDER BY Total_Sales DESC;
 ```
 <p align="left">
