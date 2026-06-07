@@ -142,6 +142,9 @@ FROM blinkit_grocery_data
 GROUP BY `Item Fat Content`
 ORDER BY Total_Sales DESC;
 ```
+<p align="left">
+  <img src="screenshot/5.png" width="300">
+</p>
 
 ---
 
@@ -162,6 +165,9 @@ FROM blinkit_grocery_data
 GROUP BY `Item Type`
 ORDER BY Total_Sales DESC;
 ```
+<p align="left">
+  <img src="screenshot/6.png" width="300">
+</p>
 
 ---
 
@@ -204,6 +210,9 @@ FROM blinkit_grocery_data
 GROUP BY `Outlet Establishment Year`
 ORDER BY `Outlet Establishment Year`;
 ```
+<p align="left">
+  <img src="screenshot/8.png" width="300">
+</p>
 
 ---
 
@@ -225,8 +234,10 @@ SELECT
 FROM blinkit_grocery_data
 GROUP BY `Outlet Size`;
 ```
-
 **Note:** `OVER()` is used as a window function to calculate overall sales while preserving grouped results.
+<p align="left">
+  <img src="screenshot/9.png" width="300">
+</p>
 
 ---
 
@@ -248,6 +259,9 @@ SELECT
 FROM blinkit_grocery_data
 GROUP BY `Outlet Location Type`;
 ```
+<p align="left">
+  <img src="screenshot/10.png" width="300">
+</p>
 
 ---
 
@@ -275,6 +289,9 @@ FROM blinkit_grocery_data
 GROUP BY `Outlet Type`
 ORDER BY Total_Sales DESC;
 ```
+<p align="left">
+  <img src="screenshot/11.png" width="300">
+</p>
 
 ---
 
