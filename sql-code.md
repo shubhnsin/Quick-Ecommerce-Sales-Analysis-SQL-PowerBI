@@ -64,7 +64,7 @@ SELECT CONCAT(
 FROM blinkit_grocery_data;
 ```
 <p align="center">
-  <img src="screenshot/1.png" width="1000">
+  <img src="screenshot/1.png" width="100">
 </p>
 
 ---
@@ -81,7 +81,7 @@ SELECT CONCAT(
 FROM blinkit_grocery_data;
 ```
 <p align="center">
-  <img src="screenshot/2.png" width="1000">
+  <img src="screenshot/2.png" width="100">
 </p>
 
 ---
@@ -95,7 +95,7 @@ SELECT COUNT(*) AS Total_No_Items
 FROM blinkit_grocery_data;
 ```
 <p align="center">
-  <img src="screenshot/3.png" width="1000">
+  <img src="screenshot/3.png" width="100">
 </p>
 
 ---
@@ -111,7 +111,7 @@ SELECT CAST(
 FROM blinkit_grocery_data;
 ```
 <p align="center">
-  <img src="screenshot/4.png" width="1000">
+  <img src="screenshot/4.png" width="100">
 </p>
 
 ---
