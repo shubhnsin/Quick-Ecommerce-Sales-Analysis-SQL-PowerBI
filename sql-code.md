@@ -312,5 +312,4 @@ ORDER BY Total_Sales DESC;
 * Window Functions
 * Business KPI Analysis
 * Retail Sales Analytics
-* Customer Satisfaction Analysis
 * Inventory Performance Analysis
