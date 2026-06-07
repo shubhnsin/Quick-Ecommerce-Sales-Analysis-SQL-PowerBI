@@ -171,26 +171,33 @@ ORDER BY Total_Sales DESC;
 
 ---
 
-## 3. Fat Content by Outlet Location
+## 3. Fat Content by Outlet for Total Sales
 
 ### Objective
 
 Compare sales performance of Low Fat and Regular products across outlet locations.
 
 ```sql
-SELECT
-    `Item Fat Content`,
-    `Outlet Location Type`,
-    CONCAT(CAST(SUM(Sales)/1000 AS DECIMAL(10,2)), 'k') AS Total_Sales,
-    CONCAT(CAST(AVG(Sales) AS DECIMAL(10,0)), 'M') AS Avg_Sales,
-    COUNT(*) AS Total_No_Items,
-    CAST(AVG(Rating) AS DECIMAL(10,2)) AS Avg_Rating
-FROM blinkit_grocery_data
-GROUP BY
-    `Item Fat Content`,
-    `Outlet Location Type`
-ORDER BY Total_Sales DESC;
+SELECT Outlet_Location_Type, 
+       ISNULL([Low Fat], 0) AS Low_Fat, 
+       ISNULL([Regular], 0) AS Regular
+FROM 
+(
+    SELECT Outlet_Location_Type, Item_Fat_Content, 
+           CAST(SUM(Total_Sales) AS DECIMAL(10,2)) AS Total_Sales
+    FROM blinkit_data
+    GROUP BY Outlet_Location_Type, Item_Fat_Content
+) AS SourceTable
+PIVOT 
+(
+    SUM(Total_Sales) 
+    FOR Item_Fat_Content IN ([Low Fat], [Regular])
+) AS PivotTable
+ORDER BY Outlet_Location_Type;
 ```
+<p align="left">
+  <img src="screenshot/7.png" width="300">
+</p>
 
 ---
 
