@@ -3,7 +3,7 @@
 # <h2>📷 Dashboard Preview</h2>
 
 <p align="center">
-  <img src="dashboard.png" width="1000">
+  <img src="dashboard.PNG" width="1000">
 </p>
 
 ---
