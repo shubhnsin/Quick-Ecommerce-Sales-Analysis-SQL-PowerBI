@@ -1,8 +1,19 @@
 # ------------------------------------------------------------------------------------------------------------------------------------------#
+#                                                            Select All Data                                                                #
+# ------------------------------------------------------------------------------------------------------------------------------------------#
+SELECT * FROM blinkit_data
+
+
+# ------------------------------------------------------------------------------------------------------------------------------------------#
 #                                                            Data Cleaning                                                                  #
 # ------------------------------------------------------------------------------------------------------------------------------------------#
-UPDATE blinkit_grocery_data set `Item Fat Content` = 'Regular' where `Item Fat Content` = 'reg';
-UPDATE blinkit_grocery_data set `Item Fat Content` = 'Low Fat' where `Item Fat Content` = 'LF' or `Item Fat Content` = 'low Fat';
+UPDATE blinkit_data
+SET Item_Fat_Content = 
+    CASE 
+        WHEN Item_Fat_Content IN ('LF', 'low fat') THEN 'Low Fat'
+        WHEN Item_Fat_Content = 'reg' THEN 'Regular'
+        ELSE Item_Fat_Content
+    END;
 
 
 # ------------------------------------------------------------------------------------------------------------------------------------------#
@@ -11,6 +22,8 @@ UPDATE blinkit_grocery_data set `Item Fat Content` = 'Low Fat' where `Item Fat C
 -- 1. Total Sales: The overall revenue generated from all items sold.
 SELECT CONCAT(CAST(sum(sales)/1000000 as DECIMAL(10,2)),'M') as Total_Sales_Millions
 from blinkit_grocery_data;
+
+-- ![Query Result](https://github.com)
 
 -- 2. Average Sales: The average revenue per sale.
 SELECT CONCAT(CAST(AVG(sales) as DECIMAL(10,0)),'M') as Avg_Sales
